@@ -7,6 +7,19 @@
   </head>
   <body>
     <div id="example"></div>
+    
+    <!--
+    		this.props.children   表示组件的所有子节点
+    			值有3种可能：  使用时要小心
+	    			   没有子节点     undefined
+	    			   一个子节点     object
+	    		        多个子节点     array
+    				
+    		React.Children来处理 this.props.children 。
+    			我们可以用 React.Children.map 来遍历子节点，
+    			而不用担心 this.props.children 的数据类型是 undefined 还是 object
+    	
+    -->
     <script type="text/babel">
       var NotesList = React.createClass({
         render: function() {

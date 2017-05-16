@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="build/react.js" type="text/javascript" charset="utf-8"></script>
+		<script src="build/react-dom.js" type="text/javascript" charset="utf-8"></script>
+		<script src="build/browser.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="box"></div>
+		
+		<script type="text/babel">
+			var NodeList = React.createClass({
+				render(){
+					return (
+						<ol>
+							{
+								React.Children.map(this.props.children, function(item){
+									return <li>{item}</li>;
+								})
+							}
+						</ol>
+					);
+				}
+			});
+			
+			ReactDOM.render(
+				<NodeList>
+					<span>北京</span>
+					<span>上海</span>
+					<span>广州</span>
+				</NodeList>,
+				document.getElementById("box")
+			);
+		</script>
+	</body>
+</html>

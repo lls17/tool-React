@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="build/react.js" type="text/javascript" charset="utf-8"></script>
+		<script src="build/react-dom.js" type="text/javascript" charset="utf-8"></script>
+		<script src="build/browser.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="box"></div>
+		<!--
+			组件： var Hello = React.creatClass({ //参数是个对象
+					render(){ //对象有自己的render方法，以来渲染自己
+						
+					} ;
+				})
+			
+			1、组件名首字母要大写，否则会报错
+			2、创建组件的对象要有自己的render()方法
+			3、组件标签只能包含一个顶级标签，否则会报错
+			4、和原生HTML一样，组件标签允许添加属性。有两个需要注意：因class和for都是JS的关键字
+			      className
+			      HTMLfor
+			5、属性的使用   { this.props.attr }
+		-->
+		<script type="text/babel">
+			var HelloWorld = React.createClass({
+				render(){
+					return <h1>唤醒你, {this.props.name}</h1>;
+				}
+			});
+			
+			ReactDOM.render(
+				<HelloWorld name="美丽莎~"/>,
+				document.getElementById("box")
+			);
+		</script>
+		
+	</body>
+</html>

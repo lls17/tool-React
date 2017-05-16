@@ -7,9 +7,16 @@
   </head>
   <body>
     <div id="example"></div>
+    
+    <!--
+    		组件类的PropTypes属性，就是用来验证组件实例的属性是否符合要求
+    	 
+    		下面的Mytitle组件有一个title属性。
+    		    PropTypes 告诉 React，这个 title 属性是必须的，而且它的值必须是字符串。
+    	 
+    -->
     <script type="text/babel">
-
-      var data = 123;
+      var data = '123';
 
       var MyTitle = React.createClass({
         propTypes: {

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="build/react.js" type="text/javascript" charset="utf-8"></script>
+		<script src="build/react-dom.js" type="text/javascript" charset="utf-8"></script>
+		<script src="build/browser.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="box"></div>
+		
+		<script type="text/babel">
+			var names = ['Mom', 'Son', 'Daughter'];
+			
+			ReactDOM.render(
+				<div data-lls="lilisha">
+					{
+						names.map(function(item, index){
+							return <div key={index}>Hello, {item}!</div>
+						})
+					}
+				</div>,
+				document.getElementById("box")
+			);
+		</script>
+	</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="build/react.js" type="text/javascript" charset="utf-8"></script>
+		<script src="build/react-dom.js" type="text/javascript" charset="utf-8"></script>
+		<script src="build/browser.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="box"></div>
+		
+		<!--
+			组件里设置默认属性：   getDefaultProps方法，返回一个对象，这个对象记录了所有属性的默认值
+		-->
+		<script type="text/babel">
+			var He= React.createClass({
+				getDefaultProps(){
+					return{
+						title:"Hello",
+						name:"Lisa"
+					};
+				},
+				render(){
+					return <h1>{this.props.title}, {this.props.name}</h1>
+				}
+			});
+			
+			ReactDOM.render(
+				<He />,
+				document.getElementById("box")
+			)
+		</script>
+	</body>
+</html>
