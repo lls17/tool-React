@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="build/react.js" type="text/javascript" charset="utf-8"></script>
+		<script src="build/react-dom.js" type="text/javascript" charset="utf-8"></script>
+		<script src="build/browser.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="box"></div>
+		
+		<script type="text/babel">
+			var LikeButton = React.createClass({
+				getInitialState(){ /*设置默认状态*/
+					return {
+						like: true
+					};
+				},
+				handleClick(){
+					this.setState({ /*更改状态*/
+						liked: !this.state.liked
+					});
+				},
+				render(){
+					var text = this.state.liked ? 'like' : 'very hate';
+					return (
+						<div>
+							<p> I {text} U !</p>
+							<p onClick={this.handleClick}> Click me to change!</p>
+						</div>
+					);
+				}
+			});
+			
+			ReactDOM.render(
+				<LikeButton />,
+				document.getElementById("box")
+			);
+		</script>
+	</body>
+</html>

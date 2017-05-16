@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="build/react.js" type="text/javascript" charset="utf-8"></script>
+		<script src="build/react-dom.js" type="text/javascript" charset="utf-8"></script>
+		<script src="build/browser.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="box"></div>
+		
+		<script type="text/babel">
+			var MyInput = React.createClass({
+				getInitialState(){
+					return {
+						text : "Hello~"
+					}
+				},
+				handleChange(ev){
+					this.setState({
+						text : ev.target.value
+					});
+				},
+				render(){
+					var text = this.state.text;
+					return(
+						<div>
+							<input type="text" value={text} onChange={this.handleChange}/>
+							<p>{text}</p>
+						</div>
+					);
+				}
+			});
+			
+			ReactDOM.render(
+				<MyInput />,
+				document.getElementById("box")
+			);
+		</script>
+	</body>
+</html>

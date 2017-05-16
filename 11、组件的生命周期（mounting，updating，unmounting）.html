@@ -11,24 +11,34 @@
 		<div id="box"></div>
 		
 		<script type="text/babel">
-			var MyComp = React.createClass({
-				handleClick(){
-					this.refs.myTextInput.focus();
+			var MyP = React.createClass({
+				getInitialState(){
+					return{
+						opa: 1.0
+					}
+				},
+				componentDidMount(){
+					var op = this.state.opa;
+					setInterval(function(){
+						op -= 0.05;
+						op = op<0.1?1.0:op;
+						this.setState({
+							opa:op
+						})
+					}.bind(this),100);
 				},
 				render(){
-					return (
-						<div>
-							<input type="text" ref="myTextInput" />
-							<input type="button" value="点我填写" onClick={this.handleClick}/>
+					return(
+						<div style={{opacity: this.state.opa}}>
+							I love U! {this.props.name}
 						</div>
 					);
 				}
 			});
-			
 			ReactDOM.render(
-				<MyComp />,
-				document.getElementById("box")
-			);
+		       <MyP name="world"/>,
+		       document.getElementById('box')
+		    );
 		</script>
 	</body>
 </html>
